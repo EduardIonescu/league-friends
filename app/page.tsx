@@ -139,7 +139,7 @@ async function AccountCard({
       {matches.length >= 1 && (
         <ul className="w-72 p-4 border-t-[1px] border-light">
           {matches.map((match) => (
-            <Fragment key={match.metadata.matchId}>
+            <Fragment key={match.metadata?.matchId ?? Math.random() * 10000}>
               <MatchDataShort match={match} summonerId={summonerData.id} />
             </Fragment>
           ))}
@@ -175,7 +175,7 @@ function MatchDataShort({
   const damageAllergy = !isSupport && lowDamagePerMinute;
   return (
     <li
-      key={match.metadata.matchId}
+      key={match.metadata?.matchId ?? Math.random() * 10000}
       className="flex gap-1 items-center h-6 shadow-sm my-0.5"
     >
       <div className="relative w-6 h-6">
