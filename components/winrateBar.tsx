@@ -28,7 +28,7 @@ export default function WinrateBar({
 
         <div
           className="bg-emerald-500 h-full absolute left-0 top-0"
-          style={{ width: winrate }}
+          style={{ width: `${winrate}%` }}
         ></div>
       </div>
       <p className="text-sm text-rose-600 font-bold">{winrate}%</p>
