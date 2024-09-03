@@ -51,6 +51,10 @@ export const ACCOUNTS_DATA = {
         region: "eun1",
       },
       {
+        url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/demon/ikspe",
+        region: "eun1",
+      },
+      {
         url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/marshalltl/euw",
         region: "euw1",
       },
