@@ -162,7 +162,7 @@ function MatchDataShort({
   const imageSrc = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${playerData?.championId}.png`;
   const score = `${playerData?.kills} / ${playerData?.deaths} / ${playerData?.assists}`;
   const isGameWon = playerData?.win;
-  const date = new Date(match.info?.gameEndTimestamp);
+  const date = new Date(match.info?.gameEndTimestamp ?? 0);
   const dateFormatted = formatDistanceToNowStrict(date);
 
   const totalDamageDealt = playerData?.totalDamageDealtToChampions || 0;
