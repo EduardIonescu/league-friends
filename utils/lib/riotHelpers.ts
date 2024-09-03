@@ -6,6 +6,7 @@ import {
   SummonerData,
   SummonerDataExtra,
 } from "../types/common";
+import { MatchV5 } from "../types/match";
 
 export async function getRiotIds(accountsData: AccountsData) {
   try {
@@ -104,6 +105,44 @@ export async function getAccountData(
   }
 
   const promises = summonerDataExtra.map((data) => getAccountId(data));
+
+  const data = await Promise.all(promises);
+
+  return data;
+}
+
+export async function getMatchIds(puuid: string) {
+  const limit = 10;
+  const endpoint = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?type=ranked&start=0&count=${limit}`;
+
+  const data = await fetch(endpoint, {
+    next: { revalidate: 180 },
+    headers: {
+      "X-Riot-Token": process.env.NEXT_PUBLIC_LEAGUE_API!,
+    },
+  });
+
+  const result: string[] = await data.json();
+
+  return result;
+}
+
+export async function getMatch(matchId: string) {
+  const endpoint = `https://europe.api.riotgames.com/lol/match/v5/matches/${matchId}`;
+  const data = await fetch(endpoint, {
+    next: { revalidate: 180 },
+    headers: {
+      "X-Riot-Token": process.env.NEXT_PUBLIC_LEAGUE_API!,
+    },
+  });
+
+  const result: MatchV5.MatchDTO = await data.json();
+
+  return result;
+}
+
+export async function getMatches(matchIds: string[]) {
+  const promises = matchIds.map((matchId) => getMatch(matchId));
 
   const data = await Promise.all(promises);
 

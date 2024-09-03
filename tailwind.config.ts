@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       boxShadow: { light: "0px 4px 6px rgba(0, 0, 0, 0.08)" },
-      border: { light: "1px solid rgb(180, 180, 180)" },
+      borderColor: { light: "rgb(171, 171, 171)" },
     },
   },
   plugins: [],
