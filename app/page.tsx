@@ -1,3 +1,4 @@
+import DamageAllergy from "@/components/damageAllergy";
 import { ACCOUNTS_DATA } from "@/utils/constants";
 import {
   getAccountData,
@@ -197,20 +198,7 @@ function MatchDataShort({
         {score}
       </p>
 
-      {damageAllergy ? (
-        <div className="relative w-6 h-6">
-          <Image
-            src="/goat.webp"
-            fill
-            sizes="100%"
-            alt=""
-            aria-hidden
-            className=" object-contain"
-          />
-        </div>
-      ) : (
-        <div className="w-6 h-6"></div>
-      )}
+      <DamageAllergy damageAllergy={damageAllergy} />
 
       <p className="w-28 text-end">{dateFormatted} ago</p>
     </li>
