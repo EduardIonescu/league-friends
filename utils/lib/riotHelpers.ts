@@ -142,7 +142,7 @@ export async function getMatch(matchId: string) {
 }
 
 export async function getMatches(matchIds: string[]) {
-  const promises = matchIds.map((matchId) => getMatch(matchId));
+  const promises = matchIds.map((matchId) => getMatch(matchId ?? ""));
 
   const data = await Promise.all(promises);
 
