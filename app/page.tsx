@@ -156,8 +156,8 @@ function MatchDataShort({
   match: MatchV5.MatchDTO;
   summonerId: string;
 }) {
-  const playerData = match.info.participants.find(
-    (participant) => participant.summonerId === summonerId
+  const playerData = match.info?.participants.find(
+    (participant) => participant?.summonerId === summonerId
   );
   const imageSrc = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${playerData?.championId}.png`;
   const score = `${playerData?.kills} / ${playerData?.deaths} / ${playerData?.assists}`;
