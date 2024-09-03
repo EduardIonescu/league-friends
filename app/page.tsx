@@ -114,7 +114,7 @@ async function AccountCard({
   const matches = await getMatches(matchIds);
 
   const winrate = Math.round(
-    (rankedAccount.wins / (rankedAccount.wins + rankedAccount.losses)) * 100
+    (rankedAccount.wins / (rankedAccount?.wins + rankedAccount?.losses)) * 100
   );
   return (
     <article
@@ -162,11 +162,11 @@ function MatchDataShort({
   const imageSrc = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${playerData?.championId}.png`;
   const score = `${playerData?.kills} / ${playerData?.deaths} / ${playerData?.assists}`;
   const isGameWon = playerData?.win;
-  const date = new Date(match.info.gameEndTimestamp);
+  const date = new Date(match.info?.gameEndTimestamp);
   const dateFormatted = formatDistanceToNowStrict(date);
 
   const totalDamageDealt = playerData?.totalDamageDealtToChampions || 0;
-  const gameLengthMinutes = Math.floor(match.info.gameDuration / 60);
+  const gameLengthMinutes = Math.floor(match.info?.gameDuration / 60);
   const damagePerMinute = Math.round(totalDamageDealt / gameLengthMinutes);
   const lowDamagePerMinute = damagePerMinute < 700;
 
