@@ -1,4 +1,5 @@
 import DamageAllergy from "@/components/damageAllergy";
+import OPGGLink from "@/components/opggLink";
 import WinrateBar from "@/components/winrateBar";
 import { ACCOUNTS_DATA } from "@/utils/constants";
 import {
@@ -104,9 +105,8 @@ async function AccountCard({
         className="w-72 border-[1px] border-light shadow-light rounded-md p-4"
         key={summonerData.id}
       >
-        <h3 className="text-xl font-bold">
-          {summonerData.gameName} #{summonerData.tagLine}
-        </h3>
+        <OPGGLink summonerData={summonerData} />
+
         <p>Unranked</p>
       </article>
     );
@@ -121,9 +121,7 @@ async function AccountCard({
       className="border-[1px] border-light shadow-light rounded-md"
     >
       <article className="w-72 p-4">
-        <h3 className="text-xl font-bold">
-          {summonerData.gameName} #{summonerData.tagLine}
-        </h3>
+        <OPGGLink summonerData={summonerData} />
 
         <>
           <p>
