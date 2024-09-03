@@ -1,4 +1,5 @@
 import DamageAllergy from "@/components/damageAllergy";
+import WinrateBar from "@/components/winrateBar";
 import { ACCOUNTS_DATA } from "@/utils/constants";
 import {
   getAccountData,
@@ -114,9 +115,6 @@ async function AccountCard({
   const matchIds = await getMatchIds(summonerData.puuid);
   const matches = await getMatches(matchIds);
 
-  const winrate = Math.round(
-    (rankedAccount.wins / (rankedAccount?.wins + rankedAccount?.losses)) * 100
-  );
   return (
     <article
       key={summonerData.id}
@@ -132,9 +130,8 @@ async function AccountCard({
             {rankedAccount.tier} {rankedAccount.rank} (
             {rankedAccount.leaguePoints} LP)
           </p>
-          <p>Wins: {rankedAccount.wins}</p>
-          <p>Losses: {rankedAccount.losses}</p>
-          <p>Winrate: {winrate}%</p>
+
+          <WinrateBar wins={rankedAccount.wins} losses={rankedAccount.losses} />
         </>
       </article>
       {matches.length >= 1 && (
@@ -192,7 +189,7 @@ function MatchDataShort({
 
       <p
         className={`w-24 text-center text-sm h-full flex items-center justify-center ${
-          isGameWon ? "bg-green-400/50" : "bg-red-400/50"
+          isGameWon ? "bg-emerald-400/50" : "bg-rose-400/50"
         }`}
       >
         {score}
