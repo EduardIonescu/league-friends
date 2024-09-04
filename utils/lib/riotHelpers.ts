@@ -131,6 +131,10 @@ export async function getMatchIds(puuid: string) {
     },
   });
 
+  if (data.status !== 200) {
+    throw new Error("Status: " + data.status);
+  }
+
   const result: string[] = await data.json();
 
   return result;
@@ -151,11 +155,16 @@ export async function getMatch(matchId: string) {
 }
 
 export async function getMatches(matchIds: string[]) {
-  const promises = matchIds.map((matchId) =>
-    retryAsyncFunction(getMatch, matchId)
-  );
+  const data = [];
 
-  const data = await Promise.all(promises);
+  for (const matchId of matchIds) {
+    const match = await retryAsyncFunction(getMatch, matchId);
+    if (match) {
+      data.push(match);
+    } else {
+      console.warn("Match didn't go through");
+    }
+  }
 
   return data;
 }
