@@ -26,7 +26,7 @@ export const ACCOUNTS_DATA = {
       },
     ],
   } as AccountsData,
-  DAN: {
+  /* DAN: {
     name: "Dan",
     endpoints: [
       {
@@ -80,5 +80,5 @@ export const ACCOUNTS_DATA = {
         region: "euw1",
       },
     ],
-  } as AccountsData,
+  } as AccountsData, */
 };
