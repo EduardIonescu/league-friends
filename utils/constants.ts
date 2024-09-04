@@ -26,23 +26,6 @@ export const ACCOUNTS_DATA = {
       },
     ],
   } as AccountsData,
-  /* DAN: {
-    name: "Dan",
-    endpoints: [
-      {
-        url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/minetrodw/2386",
-        region: "euw1",
-      },
-      {
-        url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/daqn/qand",
-        region: "eun1",
-      },
-      {
-        url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/gasdrinker/6661",
-        region: "eun1",
-      },
-    ],
-  } as AccountsData,
   DEMON: {
     name: "Demon",
     endpoints: [
@@ -57,6 +40,23 @@ export const ACCOUNTS_DATA = {
       {
         url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/marshalltl/euw",
         region: "euw1",
+      },
+    ],
+  } as AccountsData,
+  /* DAN: {
+    name: "Dan",
+    endpoints: [
+      {
+        url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/minetrodw/2386",
+        region: "euw1",
+      },
+      {
+        url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/daqn/qand",
+        region: "eun1",
+      },
+      {
+        url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/gasdrinker/6661",
+        region: "eun1",
       },
     ],
   } as AccountsData,
