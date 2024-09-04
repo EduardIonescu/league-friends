@@ -121,7 +121,7 @@ export async function getPlayerData(accountsData: AccountsData) {
 }
 
 export async function getMatchIds(puuid: string) {
-  const limit = 5;
+  const limit = 4;
   const endpoint = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?type=ranked&start=0&count=${limit}`;
 
   const data = await fetch(endpoint, {
