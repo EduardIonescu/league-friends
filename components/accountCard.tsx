@@ -1,3 +1,4 @@
+import { retryAsyncFunction } from "@/utils/lib/retryAsyncFunction";
 import { getMatches, getMatchIds } from "@/utils/lib/riotHelpers";
 import { AccountData, SummonerDataExtra } from "@/utils/types/common";
 import { Fragment } from "react";
@@ -41,9 +42,8 @@ export default async function AccountCard({
     );
   }
 
-  const matchIds = await getMatchIds(summonerData.puuid);
-  console.log(summonerData.gameName + ": " + matchIds);
-  const matches = await getMatches(matchIds);
+  const matchIds = await retryAsyncFunction(getMatchIds, summonerData.puuid);
+  const matches = await retryAsyncFunction(getMatches, matchIds);
 
   return (
     <article
