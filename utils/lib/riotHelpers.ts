@@ -7,6 +7,7 @@ import {
   SummonerDataExtra,
 } from "../types/common";
 import { MatchV5 } from "../types/match";
+import { retryAsyncFunction } from "./retryAsyncFunction";
 
 export async function getRiotIds(accountsData: AccountsData) {
   try {
@@ -150,7 +151,9 @@ export async function getMatch(matchId: string) {
 }
 
 export async function getMatches(matchIds: string[]) {
-  const promises = matchIds.map((matchId) => getMatch(matchId ?? ""));
+  const promises = matchIds.map((matchId) =>
+    retryAsyncFunction(getMatch, matchId)
+  );
 
   const data = await Promise.all(promises);
 
