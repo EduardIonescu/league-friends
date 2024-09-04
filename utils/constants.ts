@@ -12,7 +12,7 @@ export const ACCOUNTS_DATA = {
         url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/iac/eune",
         region: "eun1",
       },
-      {
+      /* {
         url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/peltea/euw",
         region: "euw1",
       },
@@ -23,7 +23,7 @@ export const ACCOUNTS_DATA = {
       {
         url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/shady99/euw",
         region: "euw1",
-      },
+      }, */
     ],
   } as AccountsData,
   DEMON: {
@@ -37,13 +37,13 @@ export const ACCOUNTS_DATA = {
         url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/demon/ikspe",
         region: "eun1",
       },
-      {
+      /*    {
         url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/marshalltl/euw",
         region: "euw1",
-      },
+      }, */
     ],
   } as AccountsData,
-  /* DAN: {
+  DAN: {
     name: "Dan",
     endpoints: [
       {
@@ -54,13 +54,13 @@ export const ACCOUNTS_DATA = {
         url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/daqn/qand",
         region: "eun1",
       },
-      {
+      /*   {
         url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/gasdrinker/6661",
         region: "eun1",
-      },
+      }, */
     ],
   } as AccountsData,
-  TZAP: {
+  /*  TZAP: {
     name: "Tzap",
     endpoints: [
       {
