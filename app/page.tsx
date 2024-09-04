@@ -19,20 +19,24 @@ export default async function Home() {
   const edIds = await getRiotIds(ACCOUNTS_DATA.ED);
   const danIds = await getRiotIds(ACCOUNTS_DATA.DAN);
   const demonIds = await getRiotIds(ACCOUNTS_DATA.DEMON);
+  const tzapIds = await getRiotIds(ACCOUNTS_DATA.TZAP);
 
   const edSummoners = await getSummonersData(edIds);
   const danSummoners = await getSummonersData(danIds);
   const demonSummoners = await getSummonersData(demonIds);
+  const tzapSummoners = await getSummonersData(tzapIds);
 
   const edAccounts = await getAccountData(edSummoners);
   const danAccounts = await getAccountData(danSummoners);
   const demonAccounts = await getAccountData(demonSummoners);
+  const tzapAccounts = await getAccountData(tzapSummoners);
 
   return (
     <main className="flex flex-col items-center gap-12 p-4">
       <PlayerSection name={ACCOUNTS_DATA.ED.name} accounts={edAccounts} />
       <PlayerSection name={ACCOUNTS_DATA.DAN.name} accounts={danAccounts} />
       <PlayerSection name={ACCOUNTS_DATA.DEMON.name} accounts={demonAccounts} />
+      <PlayerSection name={ACCOUNTS_DATA.TZAP.name} accounts={tzapAccounts} />
     </main>
   );
 }

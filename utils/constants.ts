@@ -60,4 +60,25 @@ export const ACCOUNTS_DATA = {
       },
     ],
   } as AccountsData,
+  TZAP: {
+    name: "Tzap",
+    endpoints: [
+      {
+        url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/haq/eune",
+        region: "eun1",
+      },
+      {
+        url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/GG%20BenQ%20MIkeYz/eune",
+        region: "eun1",
+      },
+      {
+        url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/il%20tzap/euw",
+        region: "euw1",
+      },
+      {
+        url: "https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/tzap/6969",
+        region: "euw1",
+      },
+    ],
+  } as AccountsData,
 };
