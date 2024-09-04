@@ -13,7 +13,7 @@ export default function MatchDataShort({
   if (!match) {
     return <></>;
   }
-  const playerData = match.info?.participants.find(
+  const playerData = match.info?.participants?.find(
     (participant) => participant?.summonerId === summonerId
   );
   const imageSrc = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${playerData?.championId}.png`;

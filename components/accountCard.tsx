@@ -24,7 +24,7 @@ export default async function AccountCard({
   }
   const { accountData, summonerData } = account;
 
-  const rankedAccount = accountData.find(
+  const rankedAccount = accountData?.find(
     (type) => type.queueType === "RANKED_SOLO_5x5"
   );
 
@@ -64,7 +64,7 @@ export default async function AccountCard({
       </article>
       {matches.length >= 1 && (
         <ul className="w-72 p-4 border-t-[1px] border-light">
-          {matches.map((match) => (
+          {matches?.map((match) => (
             <Fragment key={match.metadata?.matchId ?? Math.random() * 10000}>
               <MatchDataShort match={match} summonerId={summonerData.id} />
             </Fragment>

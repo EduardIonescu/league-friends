@@ -31,7 +31,7 @@ export default function PlayerSection({
       <h2 className="text-center text-3xl font-bold">{name}</h2>
       <section className="flex gap-6 text-center">
         {accounts.length > 0 &&
-          accounts.map((account, index) => (
+          accounts?.map((account, index) => (
             <Fragment key={index}>
               <AccountCard account={account} />
             </Fragment>
