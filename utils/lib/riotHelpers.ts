@@ -111,6 +111,14 @@ export async function getAccountData(
   return data;
 }
 
+export async function getPlayerData(accountsData: AccountsData) {
+  const riotIds = await getRiotIds(accountsData);
+  const summoners = await getSummonersData(riotIds);
+  const accounts = await getAccountData(summoners);
+
+  return accounts;
+}
+
 export async function getMatchIds(puuid: string) {
   const limit = 5;
   const endpoint = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?type=ranked&start=0&count=${limit}`;
@@ -142,9 +150,11 @@ export async function getMatch(matchId: string) {
 }
 
 export async function getMatches(matchIds: string[]) {
+  console.log("we here! " + matchIds);
   const promises = matchIds.map((matchId) => getMatch(matchId ?? ""));
 
   const data = await Promise.all(promises);
+  console.log("wtf data?: " + data.map((a) => a.metadata.matchId));
 
   return data;
 }
