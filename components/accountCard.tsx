@@ -43,8 +43,7 @@ export default async function AccountCard({
   }
 
   const matchIds = await retryAsyncFunction(getMatchIds, summonerData.puuid);
-  const matches = await getMatches(matchIds);
-  console.log(matches);
+  const matches = await retryAsyncFunction(getMatches, matchIds);
 
   return (
     <article
