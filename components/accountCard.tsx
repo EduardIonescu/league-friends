@@ -66,7 +66,9 @@ export default async function AccountCard({
         <ul className="w-72 p-4 border-t-[1px] border-light">
           {matches?.map((match) => (
             <Fragment key={match.metadata?.matchId ?? Math.random() * 10000}>
-              <MatchDataShort match={match} summonerId={summonerData.id} />
+              {match && (
+                <MatchDataShort match={match} summonerId={summonerData.id} />
+              )}
             </Fragment>
           ))}
         </ul>
