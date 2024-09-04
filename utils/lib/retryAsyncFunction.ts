@@ -8,15 +8,23 @@ export const retryAsyncFunction = async <T>(
   try {
     return await asyncFunc(arg);
   } catch (err) {
-    if (retries > 0) {
+    if (retries === 0) {
+      const bigDelay = 125_000;
+      console.warn(
+        `Error occured. Trying one last time in ${bigDelay / 1000} seconds...`
+      );
+      await new Promise((resolve) => setTimeout(resolve, bigDelay));
+      return retryAsyncFunction(asyncFunc, arg, retries - 1, bigDelay);
+    }
+    if (retries >= 0) {
       console.warn(
         `Error occured. Retrying in ${retryIntervalMs / 1000} seconds...`,
         err
       );
       await new Promise((resolve) => setTimeout(resolve, retryIntervalMs));
       return retryAsyncFunction(asyncFunc, arg, retries - 1, retryIntervalMs);
-    } else {
-      throw err;
     }
+
+    throw err;
   }
 };

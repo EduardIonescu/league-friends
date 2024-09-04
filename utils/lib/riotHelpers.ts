@@ -150,11 +150,9 @@ export async function getMatch(matchId: string) {
 }
 
 export async function getMatches(matchIds: string[]) {
-  console.log("we here! " + matchIds);
   const promises = matchIds.map((matchId) => getMatch(matchId ?? ""));
 
   const data = await Promise.all(promises);
-  console.log("wtf data?: " + data.map((a) => a.metadata.matchId));
 
   return data;
 }
